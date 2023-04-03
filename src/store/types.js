@@ -1,0 +1,8 @@
+export const INIT = 'INIT'
+export const SET_SEARCH_PARAMETER = 'SET_SEARCH_PARAMETER'
+export const GET_CURRENT_USER = 'GET_CURRENT_USER'
+export const CHECK_BILET = 'CHECK_BILET'
+export const SEARCH_INPUT = 'SEARCH_INPUT'
+export const ITEMS_LIST = 'ITEMS_LIST'
+export const ITEMS_LISTS = 'ITEMS_LISTS'
+export const ITEM_DETAIL = 'ITEM_DETAIL'
