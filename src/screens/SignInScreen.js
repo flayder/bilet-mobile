@@ -92,7 +92,7 @@ const SignInWrapper = ({navigation, route}) => {
         return Promise.resolve(0)
     }
     return (
-        <AppWrap wrap={{...styles.wrap}} scroll={{marginBottom: 0}} height={-120} measure={true}>
+        <AppWrap wrap={{...styles.wrap}} scroll={{marginBottom: 0}} measure={true}>
             <View style={styles.form}>
                 <AppText style={styles.title}>
                     Вход
@@ -110,7 +110,7 @@ const SignInWrapper = ({navigation, route}) => {
                     }}
                 />
                 <AppAuthorizeInput
-                    rule={/^[a-z0-9]{5,}$/i}
+                    rule={/^[a-z0-9]{3,}$/i}
                     placeholder="Пароль"
                     error="Пароль должен содержать не меньше 5 латинских символов и цифр"
                     type="password"
@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
         position: "relative"
     },
     btnShort: {
+        paddingTop: 20,
         position: "absolute",
         left: 0,
         width: "100%",

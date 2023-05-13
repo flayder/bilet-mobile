@@ -34,6 +34,7 @@ const ItemWrapper = ({route, navigation}) => {
     const [bilet, setBilet] = useState(false)
     const [timer, setTimer] = useState(3)
     const [torch, setTorch] = useState(false)
+    const cam = route.params && typeof route.params == "object" ? route.params.hash : false
 
     const checkedBilet = useSelector(state => state.bilet.scanned_checkout)
     const dispatch = useDispatch()
@@ -56,19 +57,22 @@ const ItemWrapper = ({route, navigation}) => {
     }, [init])
 
     useEffect(() => {
-      const getBarCodeScannerPermissions = async () => {
-        const { status } = await Camera.requestCameraPermissionsAsync()
-        setHasPermission(status === 'granted');
-      };
+        setHasPermission(null)
+        const getBarCodeScannerPermissions = async () => {
+          const { status } = await Camera.requestCameraPermissionsAsync()
+          setHasPermission(status === 'granted');
+        };
 
-      getBarCodeScannerPermissions();
-    }, []);
+        getBarCodeScannerPermissions()
+
+      
+    }, [cam]);
 
     const handleBarCodeScanned = ({ type, data }) => {
-      
       if(!scanned) {
         BiletClass.checkBilet(data).then(bilet => {
-          //console.log('bilet.product.id', bilet.product.id)
+        //   console.log('datadd', data)
+        //   console.log('bilet.product.id', bilet.product)
           setBilet(bilet)
 
           //console.log('bbbbbbbbbbbb', bilet)
@@ -99,7 +103,7 @@ const ItemWrapper = ({route, navigation}) => {
           setTimeout(() => {
             setScanned(false)
             setBilet(false)
-            LinkTo('MainPageScreen', navigation)
+            //LinkTo('MainPageScreen', navigation)
           }, 3000);
         //   let timer = 3
 

@@ -312,7 +312,7 @@ const ItemWrapper = ({route, navigation}) => {
                 </Svg>
             </View>
             <AppButton style={styles.btn} onPress={() => {
-                navigation.navigate("ScannerScreen")
+                LinkTo("ScannerScreen", navigation)
             }}>
                 Сканирование
             </AppButton>

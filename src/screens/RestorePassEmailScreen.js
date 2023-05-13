@@ -56,8 +56,9 @@ const RestorePassEmailWrapper = ({route, navigation}) => {
         data.append('email', email)
 
         const response = await AppFetch.post("/userchecker/restore_pass/", data)
+        console.log('responseresponse', response)
         if(response.status == 200) {
-            LinkTo("RestorePassEmailSuccessScreen", {}, navigation)
+            LinkTo("RestorePassEmailSuccessScreen", navigation)
         } else if(Array.isArray(response.errors) && response.errors.length > 0) {
             setIncorrectAuth(true)
             setErrorMessage(response.errors[0])
@@ -67,7 +68,7 @@ const RestorePassEmailWrapper = ({route, navigation}) => {
     }
 
     return (
-        <AppWrap wrap={{...styles.wrap}} scroll={{marginBottom: 0}} height={-120} measure={true}>
+        <AppWrap wrap={{...styles.wrap}} scroll={{marginBottom: 0}} measure={true}>
             <View style={styles.form}>
                 <AppText style={styles.title}>
                     Восстановление пароля

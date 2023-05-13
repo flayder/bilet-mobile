@@ -36,7 +36,7 @@ const RestorePassEmailWrapper = ({route, navigation}) => {
             </View>
             <View style={styles.btnShort}>
                 <AppButton onPress={() => {
-                    LinkTo("SignInScreen", {}, navigation)
+                    LinkTo("SignInScreen", navigation)
                 }}>
                     Войти
                 </AppButton>
